@@ -1,7 +1,9 @@
 package org.stacksandqueues;
 
+import java.util.Iterator;
+
 // Implements Stack using array instead of linked list
-public class StackWithArray<T> implements StackInterface<T> {
+public class StackWithArray<T> implements Iterable<T> {
 
     private T[] s;
     private int N = 0;
@@ -11,7 +13,6 @@ public class StackWithArray<T> implements StackInterface<T> {
     }
 
     // We double size when array is 100% full
-    @Override
     public void push(T item) {
         if (N == s.length) {
             resize(2 * s.length);
@@ -28,7 +29,7 @@ public class StackWithArray<T> implements StackInterface<T> {
     }
 
     // We half size when array is 25% full
-    @Override
+
     public T pop() {
         T item = s[--N];
         s[N] = null;
@@ -38,15 +39,33 @@ public class StackWithArray<T> implements StackInterface<T> {
         return item;
     }
 
-    @Override
     public boolean isEmpty() {
         return N == 0;
     }
 
-    @Override
+
     public void printAsArray() {
-        for (T item : s) {
+        for (T item : this) {
             System.out.println(item);
+        }
+    }
+
+    public Iterator<T> iterator() {
+        return new ReverseArrayIterator();
+    }
+
+    private class ReverseArrayIterator implements Iterator<T> {
+        private int i = N;
+
+        public boolean hasNext() {
+            return i > 0;
+        }
+
+        public T next(){
+            return s[--i];
+        }
+
+        public void remove() {
         }
     }
 }
