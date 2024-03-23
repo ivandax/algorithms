@@ -31,10 +31,17 @@ public class App {
 
                 String[] arrayOfStrings2 = {"arr1", "arr2", "arr3"};
                 StackOfStringsArray myStackOfStringsArray = new StackOfStringsArray(3);
+                myStackOfStringsArray.printAsArray();
                 for(String str : arrayOfStrings2){
                     myStackOfStringsArray.push(str);
                 }
+                myStackOfStringsArray.pop();
+                myStackOfStringsArray.pop();
                 myStackOfStringsArray.printAsArray();
+
+                int num = 5;
+                System.out.println(num--);
+                System.out.println(num);
             }
         }
     }

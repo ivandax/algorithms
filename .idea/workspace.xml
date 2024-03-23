@@ -7,7 +7,7 @@
     <list default="true" id="398bc1ab-6308-4aa7-ab8a-e27657f0a34d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/StackOfStrings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/StackOfStrings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/StackOfStringsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/StackOfStringsArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
