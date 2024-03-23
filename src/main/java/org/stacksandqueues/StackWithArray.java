@@ -1,18 +1,18 @@
 package org.stacksandqueues;
 
 // Implements Stack using array instead of linked list
-public class StackOfStringsArray implements StackInterface<String> {
+public class StackWithArray<T> implements StackInterface<T> {
 
-    private String[] s;
+    private T[] s;
     private int N = 0;
 
-    public StackOfStringsArray() {
-        s = new String[1];
+    public StackWithArray() {
+        s = (T[]) new Object[1];
     }
 
     // We double size when array is 100% full
     @Override
-    public void push(String item) {
+    public void push(T item) {
         if (N == s.length) {
             resize(2 * s.length);
         }
@@ -20,7 +20,7 @@ public class StackOfStringsArray implements StackInterface<String> {
     }
 
     private void resize(int capacity) {
-        String[] copy = new String[capacity];
+        T[] copy = (T[]) new Object[capacity];
         for (int i = 0; i < N; i++) {
             copy[i] = s[i];
         }
@@ -29,8 +29,8 @@ public class StackOfStringsArray implements StackInterface<String> {
 
     // We half size when array is 25% full
     @Override
-    public String pop() {
-        String item = s[--N];
+    public T pop() {
+        T item = s[--N];
         s[N] = null;
         if (N > 0 && N == s.length / 4) {
             resize(s.length / 2);
@@ -45,7 +45,7 @@ public class StackOfStringsArray implements StackInterface<String> {
 
     @Override
     public void printAsArray() {
-        for (String item : s) {
+        for (T item : s) {
             System.out.println(item);
         }
     }

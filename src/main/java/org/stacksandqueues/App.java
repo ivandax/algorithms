@@ -29,7 +29,7 @@ public class App {
                 System.out.println("\n");
 
                 String[] arrayOfStrings2 = {"arr1", "arr2", "arr3"};
-                StackOfStringsArray myStackOfStringsArray = new StackOfStringsArray();
+                StackWithArray<String> myStackOfStringsArray = new StackWithArray<>();
                 myStackOfStringsArray.printAsArray();
                 System.out.println("\n");
                 for(String str : arrayOfStrings2){
