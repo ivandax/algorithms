@@ -28,20 +28,22 @@ public class App {
                     myStackOfStrings.push(str);
                 }
                 myStackOfStrings.printAsArray();
+                System.out.println("\n");
 
                 String[] arrayOfStrings2 = {"arr1", "arr2", "arr3"};
-                StackOfStringsArray myStackOfStringsArray = new StackOfStringsArray(3);
+                StackOfStringsArray myStackOfStringsArray = new StackOfStringsArray();
                 myStackOfStringsArray.printAsArray();
+                System.out.println("\n");
                 for(String str : arrayOfStrings2){
                     myStackOfStringsArray.push(str);
                 }
                 myStackOfStringsArray.pop();
+                myStackOfStringsArray.printAsArray();
+                System.out.println("\n");
+
                 myStackOfStringsArray.pop();
                 myStackOfStringsArray.printAsArray();
-
-                int num = 5;
-                System.out.println(num--);
-                System.out.println(num);
+                System.out.println("\n");
             }
         }
     }
