@@ -45,6 +45,19 @@ public class App {
                 myStackOfStringsArray.printAsArray();
                 System.out.println("\n");
             }
+
+            if(input.equals("queue")){
+                String[] myStrings = {"q1", "q2", "q3"};
+                QueueOfStrings queueOfStrings = new QueueOfStrings();
+                for(String str : myStrings){
+                    queueOfStrings.enqueue(str);
+                }
+                queueOfStrings.printAsArray();
+                System.out.println("\n");
+                queueOfStrings.dequeue();
+                queueOfStrings.printAsArray();
+                System.out.println("\n");
+            }
         }
     }
 }
