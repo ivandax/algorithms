@@ -62,22 +62,14 @@ Then we can:
 
 `ctrl + alt + L`
 
-## Conclusions of Quick Union and Binary Search
+### How to compile a java class:
 
-- Quick union is an algorithm that allows us to efficiently track grouped members of an array.
-- It involves a data structure which is an array of integers where each item is a member of the
-  analysed group.
-- Then we create a tree for each group, so that related items share the same root.
-- The most efficient version we studied is the weighted quick union with path compression, which
-  makes sure that we always add the smaller tree into the larger one when making an union, and
-  also makes each group point directly to the root.
-- This can be applied in real life to many things: If we had a large set of users of a platform
-  and wanted to know who are connected to who, we could transform that array into the quick
-  union data structure and check it with the algorithm.
+`javac -cp lib/algs4.jar src/main/java/org/binarysearch/ThreeSum.java -d .`
 
-- Binary search is a simple algorithm that allows us to quickly find an item in a sorted array.
-- By always checking for a match in the middle of the array and then discarding half of the
-  array, the array access are less than mapping through the whole array, making it more efficient.
+Will create the compiled file on org/binarysearch/ThreeSum
+Then run the compiled class:
 
+`java -cp ".;lib/algs4.jar" org/binarysearch/ThreeSum numbers.txt`
 
+This will run the program. It runs well after adding the algs4 lib.
 
