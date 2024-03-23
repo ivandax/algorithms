@@ -22,12 +22,19 @@ public class App {
             }
 
             if(input.equals("stack")){
-                String[] arrayOfStrings = {"test0", "test1", "test2"};
+                String[] arrayOfStrings = {"linked1", "linked2", "linked3"};
                 StackOfStrings myStackOfStrings = new StackOfStrings();
                 for(String str : arrayOfStrings){
                     myStackOfStrings.push(str);
                 }
                 myStackOfStrings.printAsArray();
+
+                String[] arrayOfStrings2 = {"arr1", "arr2", "arr3"};
+                StackOfStringsArray myStackOfStringsArray = new StackOfStringsArray(3);
+                for(String str : arrayOfStrings2){
+                    myStackOfStringsArray.push(str);
+                }
+                myStackOfStringsArray.printAsArray();
             }
         }
     }

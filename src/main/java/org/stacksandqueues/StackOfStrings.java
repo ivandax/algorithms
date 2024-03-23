@@ -1,5 +1,6 @@
 package org.stacksandqueues;
 
+// Implements Stack using Linked list (node)
 public class StackOfStrings implements Stack<String> {
 
     private static class Node {
