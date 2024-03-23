@@ -3,8 +3,6 @@ package org.stacksandqueues;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.lang.reflect.Array;
-
 public class App {
     public static void main(String[] args) {
         System.out.println("Stacks and queues");
@@ -23,7 +21,7 @@ public class App {
 
             if(input.equals("stack")){
                 String[] arrayOfStrings = {"linked1", "linked2", "linked3"};
-                StackOfStrings myStackOfStrings = new StackOfStrings();
+                Stack<String> myStackOfStrings = new Stack<>();
                 for(String str : arrayOfStrings){
                     myStackOfStrings.push(str);
                 }

@@ -1,7 +1,7 @@
 package org.stacksandqueues;
 
 // Implements Stack using array instead of linked list
-public class StackOfStringsArray implements Stack<String> {
+public class StackOfStringsArray implements StackInterface<String> {
 
     private String[] s;
     private int N = 0;
