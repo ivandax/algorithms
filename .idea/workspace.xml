@@ -51,65 +51,93 @@
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RandomNumberFileGenerator">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+  <component name="RunManager" selected="JUnit.DequeTest">
+    <configuration name="DequeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomNumberFileGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.binarysearch.RandomNumberFileGenerator" />
+    <configuration name="DequeTest.testAddLastAddLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.binarysearch.*" />
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="testAddLastAddLast" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreeSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.binarysearch.ThreeSum" />
+    <configuration name="DequeTest.testAddingLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.binarysearch.*" />
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="testAddingLast" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.stacksandqueues.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.stacksandqueues.App" />
+    <configuration name="DequeTest.testRemovingFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.stacksandqueues.*" />
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="testRemovingFirst" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DequeTest.testRemovingLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="testRemovingLast" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RandomNumberFileGenerator" />
-        <item itemvalue="Application.org.stacksandqueues.App" />
-        <item itemvalue="Application.ThreeSum" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.DequeTest" />
+        <item itemvalue="JUnit.DequeTest.testRemovingFirst" />
+        <item itemvalue="JUnit.DequeTest.testRemovingLast" />
+        <item itemvalue="JUnit.DequeTest.testAddingLast" />
+        <item itemvalue="JUnit.DequeTest.testAddLastAddLast" />
       </list>
     </recent_temporary>
   </component>
