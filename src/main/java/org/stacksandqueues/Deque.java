@@ -1,6 +1,7 @@
 package org.stacksandqueues;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
 
@@ -16,8 +17,22 @@ public class Deque<Item> implements Iterable<Item> {
 
     int size = 0;
 
+    private void validateItem(Item item){
+        if(item == null){
+            throw new IllegalArgumentException("Item cannot be null");
+        }
+    }
+
+    private void preventIfEmpty(
+    ){
+        if(size() == 0){
+            throw new NoSuchElementException("Error: Deque is empty");
+        }
+    }
+
 
     public void addLast(Item item) {
+        validateItem(item);
         Node oldLast = last;
         last = new Node();
         last.item = item;
@@ -32,6 +47,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public void addFirst(Item item) {
+        validateItem(item);
         Node oldFirst = first;
         first = new Node();
         first.item = item;
@@ -46,6 +62,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public Item removeFirst() {
+        preventIfEmpty();
         Item item = first.item;
         first = first.next;
         if (isEmpty()) {
@@ -56,6 +73,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     public Item removeLast() {
+        preventIfEmpty();
         Item item = last.item;
         last = last.previous;
         if(last == null){
