@@ -102,9 +102,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return new ReverseArrayIterator();
     }
 
-    private Item[] getCopy(Item[] array, int startIndex, int endIndex) {
-        if (startIndex < 0 || endIndex >= array.length || startIndex > endIndex) {
-            System.out.println(startIndex + " " + endIndex + " " + array.length);
+    private Item[] getCopy(Item[] fromArray, int startIndex, int endIndex) {
+        if (startIndex < 0 || endIndex >= fromArray.length || startIndex > endIndex) {
             throw new IllegalArgumentException("Invalid indices.");
         }
 
@@ -112,7 +111,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         Item[] copiedArray = (Item[]) new Object[length];
 
         for (int i = startIndex; i <= endIndex; i++) {
-            copiedArray[i - startIndex] = array[i];
+            copiedArray[i - startIndex] = fromArray[i];
         }
 
         return copiedArray;
@@ -121,10 +120,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private class ReverseArrayIterator implements Iterator<Item> {
         private int current;
         private int count;
-        Item[] randomizedArray;
+        private Item[] randomizedArray;
 
         public ReverseArrayIterator() {
-            System.out.println("new iterator - front " + front + " size: " + size + " capacity " + capacity);
             current = (front + size - 1) % capacity;
             count = 0;
             if (array.length > 1) {
@@ -140,10 +138,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (size() == 0) {
+            if (!hasNext()) {
                 throw new NoSuchElementException("Error: Randomized queue is empty");
             }
-            System.out.println(current);
 
             Item item = randomizedArray[current];
             current = (current - 1 + capacity) % capacity;

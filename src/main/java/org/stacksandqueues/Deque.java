@@ -111,7 +111,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (size() == 0) {
+            if (!hasNext()) {
                 throw new NoSuchElementException("Error: Deque is empty");
             }
             Item item = current.item;
