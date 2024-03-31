@@ -46,7 +46,7 @@ public class App {
 
             if(input.equals("queue")){
                 String[] myStrings = {"q1", "q2", "q3"};
-                QueueOfStrings queueOfStrings = new QueueOfStrings();
+                Queue<String> queueOfStrings = new Queue<>();
                 for(String str : myStrings){
                     queueOfStrings.enqueue(str);
                 }

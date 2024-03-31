@@ -1,12 +1,46 @@
 package org.stacksandqueues;
 
-public interface Queue<T> {
+// Implements Stack using Linked list (node)
+public class Queue<Item> {
 
-    void enqueue(T item);
+    private class Node {
+        Item item;
+        Node next;
+    }
 
-    T dequeue();
+    Node first = null;
+    Node last = null;
 
-    boolean isEmpty();
+    public void enqueue(Item item) {
+        Node oldLast = last;
+        last = new Node();
+        last.item = item;
+        last.next = null;
+        if(isEmpty()){
+            first = last;
+        } else {
+            oldLast.next = last;
+        }
+    }
 
-    void printAsArray();
+    public Item dequeue() {
+        Item item = first.item;
+        first = first.next;
+        if(isEmpty()){
+            last = null;
+        }
+        return item;
+    }
+
+    public boolean isEmpty() {
+        return first == null;
+    }
+
+    public void printAsArray() {
+        Node current = this.first;
+        while(current != null){
+            System.out.println(current.item);
+            current = current.next;
+        }
+    }
 }
