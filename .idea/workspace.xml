@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="398bc1ab-6308-4aa7-ab8a-e27657f0a34d" name="Changes" comment="" />
+    <list default="true" id="398bc1ab-6308-4aa7-ab8a-e27657f0a34d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +68,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DequeTest.testAddLastAddLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DequeTest.emptyToNonEmptyUsingFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
@@ -74,13 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
       <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
-      <option name="METHOD_NAME" value="testAddLastAddLast" />
+      <option name="METHOD_NAME" value="emptyToNonEmptyUsingFirst" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DequeTest.testAddingLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DequeTest.emptyToNonEmptyUsingLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
@@ -90,7 +94,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
       <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
-      <option name="METHOD_NAME" value="testAddingLast" />
+      <option name="METHOD_NAME" value="emptyToNonEmptyUsingLast" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DequeTest.testRemovingAndAdding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="testRemovingAndAdding" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,29 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DequeTest.testRemovingLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="algorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.stacksandqueues.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
-      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
-      <option name="METHOD_NAME" value="testRemovingLast" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.DequeTest" />
+        <item itemvalue="JUnit.DequeTest.emptyToNonEmptyUsingLast" />
+        <item itemvalue="JUnit.DequeTest.emptyToNonEmptyUsingFirst" />
+        <item itemvalue="JUnit.DequeTest.testRemovingAndAdding" />
         <item itemvalue="JUnit.DequeTest.testRemovingFirst" />
-        <item itemvalue="JUnit.DequeTest.testRemovingLast" />
-        <item itemvalue="JUnit.DequeTest.testAddingLast" />
-        <item itemvalue="JUnit.DequeTest.testAddLastAddLast" />
       </list>
     </recent_temporary>
   </component>

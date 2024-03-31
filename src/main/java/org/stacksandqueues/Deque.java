@@ -51,6 +51,9 @@ public class Deque<Item> implements Iterable<Item> {
         Node oldFirst = first;
         first = new Node();
         first.item = item;
+        if(oldFirst != null){
+            oldFirst.previous = first;
+        }
         first.next = oldFirst;
         first.previous = null;
         if (isEmpty()) {
@@ -106,12 +109,14 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         public Item next() {
+            preventIfEmpty();
             Item item = current.item;
             current = current.next;
             return item;
         }
 
         public void remove() {
+            throw new UnsupportedOperationException("Not supported");
         }
     }
 }

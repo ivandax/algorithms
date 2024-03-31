@@ -90,5 +90,60 @@ public class DequeTest {
 
     }
 
+    @Test()
+    public void testRemovingAndAdding() {
+        Deque<Integer> deque = new Deque<>();
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addLast(3);
+        assertEquals("[1,2,3]", dequeToString(deque));
+
+        deque.addFirst(9);
+        deque.addFirst(8);
+        deque.addFirst(7);
+
+        assertEquals("[7,8,9,1,2,3]", dequeToString(deque));
+
+        deque.removeLast();
+        deque.removeLast();
+        deque.removeLast();
+
+        assertEquals("[7,8,9]", dequeToString(deque));
+
+        deque.removeFirst();
+        deque.removeFirst();
+        deque.removeFirst();
+
+        assertEquals("[]", dequeToString(deque));
+    }
+
+    @Test()
+    public void emptyToNonEmptyUsingFirst() {
+        Deque<Integer> deque = new Deque<>();
+        deque.addFirst(1);
+        deque.addFirst(2);
+        assertEquals("[2,1]", dequeToString(deque));
+        deque.removeFirst();
+        assertEquals("[1]", dequeToString(deque));
+        deque.removeFirst();
+        assertEquals("[]", dequeToString(deque));
+        deque.addLast(9);
+        assertEquals("[9]", dequeToString(deque));
+    }
+
+    @Test()
+    public void emptyToNonEmptyUsingLast() {
+        Deque<Integer> deque = new Deque<>();
+        deque.addLast(1);
+        deque.addLast(2);
+        assertEquals("[1,2]", dequeToString(deque));
+        deque.removeLast();
+        assertEquals("[1]", dequeToString(deque));
+        deque.removeLast();
+        assertEquals("[]", dequeToString(deque));
+        deque.addFirst(9);
+        assertEquals("[9]", dequeToString(deque));
+    }
+
 
 }
