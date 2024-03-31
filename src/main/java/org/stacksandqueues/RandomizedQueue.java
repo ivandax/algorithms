@@ -23,15 +23,15 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         size = 0;
     }
 
-    private void validateItem(Item item){
-        if(item == null){
+    private void validateItem(Item item) {
+        if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
     }
 
     private void preventIfEmpty(
-    ){
-        if(size() == 0){
+    ) {
+        if (size() == 0) {
             throw new NoSuchElementException("Error: Randomized queue is empty");
         }
     }
@@ -58,7 +58,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private int getRandomIndex() {
-        if(rear == front){
+        if (rear == front) {
             return 0;
         }
         return StdRandom.uniformInt(rear - front) + front + 1;
@@ -72,7 +72,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         preventIfEmpty();
         int indexToRemove = getRandomIndex();
         Item data;
-        if(indexToRemove == front){
+        if (indexToRemove == front) {
             data = array[front];
             front = (front + 1) % capacity;
         } else if (indexToRemove == rear) {
@@ -88,7 +88,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return data;
     }
 
-    public Item sample(){
+    public Item sample() {
         preventIfEmpty();
         int index = getRandomIndex();
         return array[index];
@@ -127,7 +127,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             System.out.println("new iterator - front " + front + " size: " + size + " capacity " + capacity);
             current = (front + size - 1) % capacity;
             count = 0;
-            if(array.length > 1){
+            if (array.length > 1) {
                 randomizedArray = getCopy(array, front, rear);
             } else {
                 randomizedArray = array;
@@ -140,7 +140,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            preventIfEmpty();
+            if (size() == 0) {
+                throw new NoSuchElementException("Error: Randomized queue is empty");
+            }
             System.out.println(current);
 
             Item item = randomizedArray[current];
@@ -155,7 +157,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         RandomizedQueue<Integer> randomizedQueue = new RandomizedQueue<>();
         randomizedQueue.enqueue(1);
         randomizedQueue.enqueue(2);

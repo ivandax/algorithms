@@ -14,20 +14,20 @@ public class Deque<Item> implements Iterable<Item> {
         Node previous;
     }
 
-    Node first = null;
-    Node last = null;
+    private Node first = null;
+    private Node last = null;
 
-    int size = 0;
+    private int size = 0;
 
-    private void validateItem(Item item){
-        if(item == null){
+    private void validateItem(Item item) {
+        if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
     }
 
     private void preventIfEmpty(
-    ){
-        if(size() == 0){
+    ) {
+        if (size() == 0) {
             throw new NoSuchElementException("Error: Deque is empty");
         }
     }
@@ -53,7 +53,7 @@ public class Deque<Item> implements Iterable<Item> {
         Node oldFirst = first;
         first = new Node();
         first.item = item;
-        if(oldFirst != null){
+        if (oldFirst != null) {
             oldFirst.previous = first;
         }
         first.next = oldFirst;
@@ -81,8 +81,8 @@ public class Deque<Item> implements Iterable<Item> {
         preventIfEmpty();
         Item item = last.item;
         last = last.previous;
-        if(last == null){
-           first = null;
+        if (last == null) {
+            first = null;
         } else {
             last.next = null;
         }
@@ -111,7 +111,9 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            preventIfEmpty();
+            if (size() == 0) {
+                throw new NoSuchElementException("Error: Deque is empty");
+            }
             Item item = current.item;
             current = current.next;
             return item;
@@ -122,7 +124,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Deque<Integer> deque = new Deque<>();
         deque.addFirst(1);
         deque.addLast(2);
