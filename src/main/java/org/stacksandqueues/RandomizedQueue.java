@@ -102,13 +102,37 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return new ReverseArrayIterator();
     }
 
+    private Item[] getCopy(Item[] array, int startIndex, int endIndex) {
+        if (startIndex < 0 || endIndex >= array.length || startIndex > endIndex) {
+            System.out.println(startIndex + " " + endIndex + " " + array.length);
+            throw new IllegalArgumentException("Invalid indices.");
+        }
+
+        int length = endIndex - startIndex + 1;
+        Item[] copiedArray = (Item[]) new Object[length];
+
+        for (int i = startIndex; i <= endIndex; i++) {
+            copiedArray[i - startIndex] = array[i];
+        }
+
+        return copiedArray;
+    }
+
     private class ReverseArrayIterator implements Iterator<Item> {
         private int current;
         private int count;
+        Item[] randomizedArray;
 
         public ReverseArrayIterator() {
+            System.out.println("new iterator - front " + front + " size: " + size + " capacity " + capacity);
             current = (front + size - 1) % capacity;
             count = 0;
+            if(array.length > 1){
+                randomizedArray = getCopy(array, front, rear);
+            } else {
+                randomizedArray = array;
+            }
+            StdRandom.shuffle(randomizedArray);
         }
 
         public boolean hasNext() {
@@ -117,7 +141,9 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         public Item next() {
             preventIfEmpty();
-            Item item = array[current];
+            System.out.println(current);
+
+            Item item = randomizedArray[current];
             current = (current - 1 + capacity) % capacity;
             count++;
             return item;
