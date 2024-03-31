@@ -1,5 +1,7 @@
 package org.stacksandqueues;
 
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -118,5 +120,15 @@ public class Deque<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException("Not supported");
         }
+    }
+
+    public static void main(String[] args){
+        Deque<Integer> deque = new Deque<>();
+        deque.addFirst(1);
+        deque.addLast(2);
+        Integer removedFirst = deque.removeFirst();
+        Integer removedLast = deque.removeLast();
+        StdOut.println(removedFirst);
+        StdOut.println(removedLast);
     }
 }
