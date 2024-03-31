@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
-// Implements queue using array
-public class RandomizedQueue<Item> implements Iterable<Item> {
+// Goal: Similar to randomized queue but helps us choose items to dequeue with an index (for testing)
+public class DefinedAccessQueue<Item> implements Iterable<Item> {
 
     private Item[] array;
     private int front;
@@ -15,7 +15,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private int size;
     private int capacity;
 
-    public RandomizedQueue() {
+    public DefinedAccessQueue() {
         capacity = 0;
         array = (Item[]) new Object[capacity];
         front = 0;
@@ -61,25 +61,24 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         if(rear == front){
             return 0;
         }
-        return StdRandom.uniformInt(rear - front) + front + 1;
+        return StdRandom.uniformInt(rear - front) + front;
     }
 
     public int size() {
         return size;
     }
 
-    public Item dequeue() {
+    public Item dequeue(int index) {
         preventIfEmpty();
-        int indexToRemove = getRandomIndex();
         Item data;
-        if(indexToRemove == front){
+        if(index == front){
             data = array[front];
             front = (front + 1) % capacity;
-        } else if (indexToRemove == rear) {
+        } else if (index == rear) {
             data = array[rear];
             rear = (rear - 1) % capacity;
         } else {
-            data = array[indexToRemove];
+            data = array[index];
         }
         size--;
         if (size <= capacity / 4) {
@@ -121,18 +120,12 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private class ReverseArrayIterator implements Iterator<Item> {
         private int current;
         private int count;
-        Item[] randomizedArray;
+        Item[] arrayCopy;
 
         public ReverseArrayIterator() {
-            System.out.println("new iterator - front " + front + " size: " + size + " capacity " + capacity);
             current = (front + size - 1) % capacity;
             count = 0;
-            if(array.length > 1){
-                randomizedArray = getCopy(array, front, rear);
-            } else {
-                randomizedArray = array;
-            }
-            StdRandom.shuffle(randomizedArray);
+            arrayCopy = array;
         }
 
         public boolean hasNext() {
@@ -141,9 +134,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         public Item next() {
             preventIfEmpty();
-            System.out.println(current);
 
-            Item item = randomizedArray[current];
+            Item item = arrayCopy[current];
             current = (current - 1 + capacity) % capacity;
             count++;
             return item;
@@ -153,6 +145,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         public void remove() {
             throw new UnsupportedOperationException("Not supported");
         }
+    }
+
+    public void showState(){
+        System.out.println("front " + front);
+        System.out.println("rear " + rear);
+        System.out.println("size " + size);
+        System.out.println("capacity " + capacity);
     }
 
     public static void main(String[] args){
