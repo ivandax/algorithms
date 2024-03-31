@@ -3,6 +3,7 @@ package org.stacksandqueues;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 // Implements queue using array
@@ -22,6 +23,19 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         size = 0;
     }
 
+    private void validateItem(Item item){
+        if(item == null){
+            throw new IllegalArgumentException("Item cannot be null");
+        }
+    }
+
+    private void preventIfEmpty(
+    ){
+        if(size() == 0){
+            throw new NoSuchElementException("Error: Randomized queue is empty");
+        }
+    }
+
     private void resize(int newCapacity) {
         Item[] newArray = (Item[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
@@ -34,6 +48,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public void enqueue(Item item) {
+        validateItem(item);
         if (size == capacity) {
             resize(2 * capacity + 1);
         }
@@ -43,13 +58,18 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private int getRandomIndex() {
+        if(rear == front){
+            return 0;
+        }
         return StdRandom.uniformInt(rear - front) + front;
     }
 
+    public int size() {
+        return size;
+    }
+
     public Item dequeue() {
-        if (isEmpty()) {
-            throw new NoSuchElementException("Stack underflow");
-        }
+        preventIfEmpty();
         int indexToRemove = getRandomIndex();
         Item data;
         if(indexToRemove == front){
@@ -69,6 +89,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     public Item sample(){
+        preventIfEmpty();
         int index = getRandomIndex();
         return array[index];
     }
@@ -95,7 +116,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            preventIfEmpty();
             Item item = array[current];
             current = (current - 1 + capacity) % capacity;
             count++;
@@ -108,5 +129,14 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
     }
 
+    public static void main(String[] args){
+        RandomizedQueue<Integer> randomizedQueue = new RandomizedQueue<>();
+        randomizedQueue.enqueue(1);
+        randomizedQueue.enqueue(2);
+        Integer removedFirst = randomizedQueue.dequeue();
+        Integer removedLast = randomizedQueue.dequeue();
+        StdOut.println(removedFirst);
+        StdOut.println(removedLast);
+    }
 
 }

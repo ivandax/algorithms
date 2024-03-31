@@ -49,7 +49,13 @@ public class RandomizedQueueTest {
         queue.dequeue();
 
         System.out.println(queueToArray(queue).size());
-        assertEquals("[5,4,3]", queueToString(queue));
+        assertEquals(3, queueToArray(queue).size());
+
+        queue.dequeue();
+        queue.dequeue();
+        queue.dequeue();
+
+        assertEquals("[]", queueToString(queue));
     }
 
 }
