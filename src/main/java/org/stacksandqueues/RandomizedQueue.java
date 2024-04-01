@@ -100,7 +100,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         public ReverseArrayIterator() {
             current = 0;
             if (size > 1) {
-                System.out.println(array.length);
                 randomizedArray = getCopy(array, 0, size - 1);
                 StdRandom.shuffle(randomizedArray);
             } else {

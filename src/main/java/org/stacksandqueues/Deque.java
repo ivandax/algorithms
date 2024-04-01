@@ -128,22 +128,4 @@ public class Deque<Item> implements Iterable<Item> {
         StdOut.println(removedFirst);
         StdOut.println(removedLast);
     }
-
-    public void printState(){
-        if(first != null){
-            System.out.println("first value " + first.item);
-            System.out.println("first next " + first.next);
-            System.out.println("first previous " + first.previous);
-        } else {
-            System.out.println("first is null");
-        }
-
-        if(last != null){
-            System.out.println("last value " + last.item);
-            System.out.println("last next " + last.next);
-            System.out.println("last previous " + last.previous);
-        } else {
-            System.out.println("last is null");
-        }
-    }
 }
