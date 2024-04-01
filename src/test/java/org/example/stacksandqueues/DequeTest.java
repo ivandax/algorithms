@@ -145,5 +145,33 @@ public class DequeTest {
         assertEquals("[9]", dequeToString(deque));
     }
 
+    @Test()
+    public void longRandomTest() {
+        Deque<Integer> deque = new Deque<>();
+        deque.addLast(1);
+        deque.addLast(2);
+        assertEquals("[1,2]", dequeToString(deque));
+        System.out.println(deque.iterator());
+        deque.addFirst(3);
+        assertEquals("[3,1,2]", dequeToString(deque));
+        deque.addFirst(4);
+        assertEquals("[4,3,1,2]", dequeToString(deque));
+        deque.removeFirst();
+        assertEquals("[3,1,2]", dequeToString(deque));
+        deque.addLast(7);
+        assertEquals("[3,1,2,7]", dequeToString(deque));
+        deque.addFirst(11);
+        assertEquals("[11,3,1,2,7]", dequeToString(deque));
+        deque.removeLast();
+        assertEquals("[11,3,1,2]", dequeToString(deque));
+        deque.removeLast();
+        assertEquals("[11,3,1]", dequeToString(deque));
+        deque.removeLast();
+        assertEquals("[11,3]", dequeToString(deque));
+        deque.removeFirst();
+        assertEquals("[3]", dequeToString(deque));
+        deque.removeFirst();
+        assertEquals("[]", dequeToString(deque));
+    }
 
 }

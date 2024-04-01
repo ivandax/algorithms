@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Permutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Permutation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/RandomizedQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/RandomizedQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DefinedAccessQueueTests.testEnqueueAndDequeue">
+  <component name="RunManager" selected="JUnit.DequeTest.longRandomTest">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.stacksandqueues.App" />
       <module name="algorithms" />
@@ -64,22 +65,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ArrayQueueTest.testEnqueueAndDequeue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="algorithms" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.stacksandqueues.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
-      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.ArrayQueueTest" />
-      <option name="METHOD_NAME" value="testEnqueueAndDequeue" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,6 +101,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DequeTest.longRandomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algorithms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.stacksandqueues.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
+      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.DequeTest" />
+      <option name="METHOD_NAME" value="longRandomTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RandomizedQueueTest.testEnqueueAndDequeue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
@@ -134,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DequeTest.longRandomTest" />
         <item itemvalue="JUnit.DefinedAccessQueueTests.testEnqueueAndDequeue" />
         <item itemvalue="JUnit.RandomizedQueueTest.testEnqueueAndDequeue" />
         <item itemvalue="JUnit.ArrayQueueTest.testEnqueueAndDequeueLarge" />
         <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.ArrayQueueTest.testEnqueueAndDequeue" />
       </list>
     </recent_temporary>
   </component>
