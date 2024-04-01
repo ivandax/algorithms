@@ -63,12 +63,12 @@ public class Deque<Item> implements Iterable<Item> {
         preventIfEmpty();
         Item item = first.item;
         first = first.next;
+        size--;
         if (isEmpty()) {
             last = null;
         } else if (first != null) {
             first.previous = null;
         }
-        size--;
         return item;
     }
 
@@ -76,12 +76,12 @@ public class Deque<Item> implements Iterable<Item> {
         preventIfEmpty();
         Item item = last.item;
         last = last.previous;
+        size--;
         if (isEmpty()) {
             first = null;
         } else if (last != null) {
             last.next = null;
         }
-        size--;
         return item;
     }
 
@@ -127,5 +127,23 @@ public class Deque<Item> implements Iterable<Item> {
         Integer removedLast = deque.removeLast();
         StdOut.println(removedFirst);
         StdOut.println(removedLast);
+    }
+
+    public void printState(){
+        if(first != null){
+            System.out.println("first value " + first.item);
+            System.out.println("first next " + first.next);
+            System.out.println("first previous " + first.previous);
+        } else {
+            System.out.println("first is null");
+        }
+
+        if(last != null){
+            System.out.println("last value " + last.item);
+            System.out.println("last next " + last.next);
+            System.out.println("last previous " + last.previous);
+        } else {
+            System.out.println("last is null");
+        }
     }
 }
