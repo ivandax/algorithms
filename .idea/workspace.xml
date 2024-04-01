@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="398bc1ab-6308-4aa7-ab8a-e27657f0a34d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/Deque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/DequeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/RandomizedQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/stacksandqueues/RandomizedQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/RandomizedQueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/stacksandqueues/RandomizedQueueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +53,7 @@
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DequeTest">
+  <component name="RunManager" selected="JUnit.RandomizedQueueTest">
     <configuration name="DefinedAccessQueueTests.testEnqueueAndDequeue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
@@ -117,7 +117,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomizedQueueTest.testEnqueueAndDequeue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RandomizedQueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
@@ -127,19 +127,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
       <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.RandomizedQueueTest" />
-      <option name="METHOD_NAME" value="testEnqueueAndDequeue" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RandomizedQueueTest" />
         <item itemvalue="JUnit.DequeTest" />
         <item itemvalue="JUnit.DequeTest.testRemovingLast" />
         <item itemvalue="JUnit.DequeTest.longRandomTest" />
         <item itemvalue="JUnit.DefinedAccessQueueTests.testEnqueueAndDequeue" />
-        <item itemvalue="JUnit.RandomizedQueueTest.testEnqueueAndDequeue" />
       </list>
     </recent_temporary>
   </component>

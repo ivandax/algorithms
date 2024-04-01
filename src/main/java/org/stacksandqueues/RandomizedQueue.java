@@ -10,16 +10,11 @@ import edu.princeton.cs.algs4.StdRandom;
 public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private Item[] array;
-    private int front;
-    private int rear;
     private int size;
     private int capacity;
 
     public RandomizedQueue() {
-        capacity = 0;
-        array = (Item[]) new Object[capacity];
-        front = 0;
-        rear = -1;
+        array = (Item[]) new Object[1];
         size = 0;
     }
 
@@ -39,29 +34,17 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     private void resize(int newCapacity) {
         Item[] newArray = (Item[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
-            newArray[i] = array[(front + i) % capacity];
+            newArray[i] = array[i];
         }
         array = newArray;
-        capacity = newCapacity;
-        front = 0;
-        rear = size - 1;
     }
 
     public void enqueue(Item item) {
         validateItem(item);
-        if (size == capacity) {
-            resize(2 * capacity + 1);
+        if (size == array.length) {
+            resize(2 * array.length);
         }
-        rear = (rear + 1) % capacity;
-        array[rear] = item;
-        size++;
-    }
-
-    private int getRandomIndex() {
-        if (rear == front) {
-            return 0;
-        }
-        return StdRandom.uniformInt(rear - front) + front + 1;
+        array[size++] = item;
     }
 
     public int size() {
@@ -70,27 +53,20 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     public Item dequeue() {
         preventIfEmpty();
-        int indexToRemove = getRandomIndex();
-        Item data;
-        if (indexToRemove == front) {
-            data = array[front];
-            front = (front + 1) % capacity;
-        } else if (indexToRemove == rear) {
-            data = array[rear];
-            rear = (rear - 1) % capacity;
-        } else {
-            data = array[indexToRemove];
-        }
+        int randomIndex = StdRandom.uniformInt(size);
+        Item item = array[randomIndex];
+        array[randomIndex] = array[size - 1];
+        array[size - 1] = null;
         size--;
-        if (size <= capacity / 4) {
-            resize(capacity / 2);
+        if (size > 0 && size == array.length / 4) {
+            resize(array.length / 2);
         }
-        return data;
+        return item;
     }
 
     public Item sample() {
         preventIfEmpty();
-        int index = getRandomIndex();
+        int index = StdRandom.uniformInt(size);
         return array[index];
     }
 
@@ -119,22 +95,22 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private class ReverseArrayIterator implements Iterator<Item> {
         private int current;
-        private int count;
         private Item[] randomizedArray;
 
         public ReverseArrayIterator() {
-            current = (front + size - 1) % capacity;
-            count = 0;
-            if (array.length > 1) {
-                randomizedArray = getCopy(array, front, rear);
+            current = 0;
+            if (size > 1) {
+                System.out.println(array.length);
+                randomizedArray = getCopy(array, 0, size - 1);
+                StdRandom.shuffle(randomizedArray);
             } else {
                 randomizedArray = array;
             }
-            StdRandom.shuffle(randomizedArray);
+
         }
 
         public boolean hasNext() {
-            return count < size;
+            return current < size;
         }
 
         public Item next() {
@@ -143,8 +119,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
             }
 
             Item item = randomizedArray[current];
-            current = (current - 1 + capacity) % capacity;
-            count++;
+            current++;
             return item;
         }
 

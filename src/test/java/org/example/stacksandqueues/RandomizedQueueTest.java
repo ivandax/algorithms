@@ -54,6 +54,7 @@ public class RandomizedQueueTest {
 
         queue.dequeue();
         queue.dequeue();
+        System.out.println(queueToArray(queue));
         queue.dequeue();
         System.out.println(queueToArray(queue));
 
