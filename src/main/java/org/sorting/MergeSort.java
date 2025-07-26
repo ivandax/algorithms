@@ -28,12 +28,31 @@ public class MergeSort {
         }
     }
 
+    private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+        if (hi <= lo) return;
+        int mid = lo + (hi - lo) / 2;
+        sort(a, aux, lo, mid);
+        sort(a, aux, mid + 1, hi);
+        merge(a, aux, lo, mid, hi);
+    }
+
+    public static void sort(Comparable[] a) {
+        Comparable[] aux = new Comparable[a.length];
+        sort(a, aux, 0, a.length - 1);
+    }
+
     public static void main(String[] args) {
         Integer[] arr = {1, 3, 5, 2, 4, 6};
         Integer[] aux = new Integer[6];
         merge(arr, aux, 0, 2, 5);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
+        }
+
+        Integer[] arr2 = {1, 5, 3, 7, 2, 4, 8, 6};
+        sort(arr2);
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.println(arr2[i]);
         }
     }
 }
