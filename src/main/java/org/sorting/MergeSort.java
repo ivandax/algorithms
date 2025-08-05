@@ -28,6 +28,8 @@ public class MergeSort {
         }
     }
 
+    // uses n Log n compares at worst
+    // uses 6 * n log n array accesses
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
         if (hi <= lo) return;
         int mid = lo + (hi - lo) / 2;
