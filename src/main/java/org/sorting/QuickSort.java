@@ -22,16 +22,16 @@ public class QuickSort {
         int i = lo;
         int j = hi + 1;
         while (true) {
-            // find item on left to swap
+            // move i pointer right until element is lower that a[lo]
             while (less(a[++i], a[lo])) {
                 if (i == hi) break;
             }
-            // find item on right to swap
+            // move j pointer left until element is lower that a[lo]
             while (less(a[lo], a[--j])) {
                 if (j == lo) break;
             }
 
-            //check if points cross and swap
+            // If i greater than j, partitioning is complete.
             if (i >= j) break;
             exch(a, i, j);
         }
