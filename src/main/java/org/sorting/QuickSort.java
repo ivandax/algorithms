@@ -47,8 +47,24 @@ public class QuickSort {
     }
 
     public static void sort(Comparable[] a) {
+        // Shuffle to avoid worst case input
         StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
+    }
+
+    // Purpose: find the Kth smallest element in an array
+    // doesnt fully sort the array
+    public static Comparable quickSelect(Comparable[] a, int k) {
+        StdRandom.shuffle(a);
+        int lo = 0;
+        int hi = a.length - 1;
+        while (hi > lo) {
+            int j = partition(a, lo, hi);
+            if (j < k) lo = j + 1;
+            else if (j > k) hi = j - 1;
+            else return a[k];
+        }
+        return a[k];
     }
 
     public static void main(String[] args) {
@@ -57,5 +73,13 @@ public class QuickSort {
         sort(arr);
         System.out.println("Sorted array:");
         System.out.println(Arrays.toString(arr));
+
+        System.out.println("Selection>");
+        Integer[] arr2 = {6, 9, 5, 2, 4, 1, 8, 11, 7, 12, 3, 10};
+        Comparable found = quickSelect(arr2, 0);
+        System.out.println("Selected element: " + found);
     }
+
+    // Note, since quick select discards half the array it reaches o(n) speed
+    // quick sort reaches n log(n) because it sorts both halves
 }
