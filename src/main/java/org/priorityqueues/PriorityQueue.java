@@ -37,18 +37,18 @@ public class PriorityQueue<Key extends Comparable<Key>> {
     }
 
     private void sink(int k) {
-        while (2*k <= N) {
-            int j = 2*k;
-            if(j < N && less(j, j+1)) j++;
+        while (2 * k <= N) {
+            int j = 2 * k;
+            if (j < N && less(j, j + 1)) j++;
             // Check if the item is not less than it's largest children to break.
-            if(!less(k, j)) break;
+            if (!less(k, j)) break;
             exch(k, j);
             k = j;
         }
     }
 
     // Inserts element at the end and swim it up in case it is larger than its parent
-    public void insert(Key x){
+    public void insert(Key x) {
         pq[++N] = x;
         swim(N);
     }
@@ -57,12 +57,12 @@ public class PriorityQueue<Key extends Comparable<Key>> {
         Key max = pq[1];
         exch(1, N--);
         sink(1);
-        pq[N+1] = null;
+        pq[N + 1] = null;
         return max;
     }
 
     public void simplePrint() {
-        for(Key a : pq) {
+        for (Key a : pq) {
             System.out.println(a);
         }
     }
