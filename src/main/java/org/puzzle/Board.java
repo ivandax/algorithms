@@ -48,19 +48,28 @@ public class Board {
         return count;
     }
 
+    private int findRow(int index){
+        return index / n;
+    }
+
+    private int findColumn(int index){
+        return index % n;
+    }
+
     // sum of Manhattan distances between tiles and goal
     public int manhattan() {
         int totalDiff = 0;
         for (int i = 0; i < tileArray.length; i++) {
             int value = tileArray[i];
-            int targetRow = value / n;
-            int targetCol = value % n;
-            int currentRow = (i + 1) / n;
-            int currentCol = (i + 1) % n;
-            int rowDiff = Math.abs(targetRow - currentRow) ;
-            int colDiff = Math.abs(targetCol - currentCol);
-            totalDiff = rowDiff + colDiff;
-            System.out.println(totalDiff);
+            if (value == 0) continue;
+            int targetIndex = value - 1;
+            int targetRow = findRow(targetIndex);
+            int targetCol = findColumn(targetIndex);
+            int currentRow = findRow(i);
+            int currentCol = findColumn(i);
+            int rowDiff = Math.abs(currentRow - targetRow);
+            int colDiff = Math.abs(currentCol - targetCol);
+            totalDiff = totalDiff + rowDiff + colDiff;
         }
         return totalDiff;
     }
@@ -69,13 +78,7 @@ public class Board {
         int[][] sample = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         Board newBoard = new Board(sample);
         StdOut.println(newBoard.toString());
-        newBoard.manhattan();
-
-        System.out.println("\n");
-        System.out.println("Test");
-        System.out.println("\n");
-        System.out.println(2 / 3);
-        System.out.println(2 % 3);
+        System.out.println(newBoard.manhattan());
     }
 
 }

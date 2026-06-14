@@ -64,7 +64,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Board.executor": "Debug",
+    "Application.Board.executor": "Run",
     "Application.MergeSort.executor": "Run",
     "Application.PriorityQueue.executor": "Run",
     "Application.QuickSort.executor": "Debug",
