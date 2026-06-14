@@ -48,11 +48,11 @@ public class Board {
         return count;
     }
 
-    private int findRow(int index){
+    private int findRow(int index) {
         return index / n;
     }
 
-    private int findColumn(int index){
+    private int findColumn(int index) {
         return index % n;
     }
 
@@ -72,6 +72,31 @@ public class Board {
             totalDiff = totalDiff + rowDiff + colDiff;
         }
         return totalDiff;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) return true;
+        if (other == null) return false;
+        if (other.getClass() != this.getClass()) return false;
+        Board that = (Board) other;
+
+        // Not the same dimensions
+        if (this.n != that.n) {
+            return false;
+        }
+
+        // Not all equal elements
+        boolean areEqual = true;
+        for (int i = 0; i < this.tileArray.length; i++) {
+            int thisValue = this.tileArray[i];
+            int thatValue = that.tileArray[i];
+            if (thisValue != thatValue) {
+                areEqual = false;
+                break;
+            }
+        }
+        return areEqual;
     }
 
     public static void main(String[] args) {
