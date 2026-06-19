@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 public class Board {
     private int[] tileArray;
     private int n;
+    private int blank;
 
     public Board(int[][] tiles) {
         int n = tiles.length;
@@ -12,7 +13,11 @@ public class Board {
         for (int i = 0; i < tiles.length; i++) {
             int[] row = tiles[i];
             for (int j = 0; j < row.length; j++) {
-                tileArray[i * n + j] = row[j];
+                int index = i * n + j;
+                tileArray[index] = row[j];
+                if(row[j] == 0){
+                    this.blank = i * n + j;
+                }
             }
         }
         this.tileArray = tileArray;
