@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 public class Board {
     private int[] tileArray;
     private int n;
-    private int blank;
+    private int blankIndex;
 
     public Board(int[][] tiles) {
         int n = tiles.length;
@@ -16,7 +16,7 @@ public class Board {
                 int index = i * n + j;
                 tileArray[index] = row[j];
                 if(row[j] == 0){
-                    this.blank = i * n + j;
+                    this.blankIndex = i * n + j;
                 }
             }
         }
@@ -104,11 +104,27 @@ public class Board {
         return areEqual;
     }
 
+    public int getNumberOfNeighbors() {
+        int colRef = blankIndex % n;
+        int rowRef = blankIndex / n;
+        boolean isFirstCol = colRef == 0;
+        boolean isLastCol = colRef + 1 == n;
+        boolean isFirstRow = rowRef == 0;
+        boolean isLastRow = rowRef + 1 == n;
+
+        int maxNeighbors = 4;
+        if(isFirstCol || isLastCol) maxNeighbors--;
+        if(isFirstRow || isLastRow) maxNeighbors--;
+        return maxNeighbors;
+    }
+
     public static void main(String[] args) {
         int[][] sample = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         Board newBoard = new Board(sample);
         StdOut.println(newBoard.toString());
         System.out.println(newBoard.manhattan());
+        System.out.println("Neighbors");
+        System.out.println(newBoard.getNumberOfNeighbors());
     }
 
 }
