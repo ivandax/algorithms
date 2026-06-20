@@ -1,10 +1,12 @@
 package org.puzzle;
 
+import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Board {
     private int[] tileArray;
     private int n;
+    private int manhattan;
     private int blankIndex;
 
     public Board(int[][] tiles) {
@@ -16,12 +18,13 @@ public class Board {
                 int index = i * n + j;
                 tileArray[index] = row[j];
                 if(row[j] == 0){
-                    this.blankIndex = i * n + j;
+                    this.blankIndex = index;
                 }
             }
         }
         this.tileArray = tileArray;
         this.n = n;
+        this.manhattan = calculateManhattan();
     }
 
     public String toString() {
@@ -62,7 +65,7 @@ public class Board {
     }
 
     // sum of Manhattan distances between tiles and goal
-    public int manhattan() {
+    public int calculateManhattan() {
         int totalDiff = 0;
         for (int i = 0; i < tileArray.length; i++) {
             int value = tileArray[i];
@@ -77,6 +80,11 @@ public class Board {
             totalDiff = totalDiff + rowDiff + colDiff;
         }
         return totalDiff;
+    }
+
+    // sum of Manhattan distances between tiles and goal
+    public int manhattan() {
+        return manhattan;
     }
 
     @Override
