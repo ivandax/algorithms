@@ -27,6 +27,20 @@ public class Board {
         this.manhattan = calculateManhattan();
     }
 
+    public Board getBoardFromTileArray() {
+        int[][] outerArray = new int[n][n];
+        for(int c = 0; c < n; c++){
+            int[] innerArray = new int[n];
+            int pointer = 0;
+            for(int i = c * n; i < c * n + n; i++){
+                innerArray[pointer] = tileArray[i];
+                pointer++;
+            }
+            outerArray[c] = innerArray;
+        }
+        return new Board(outerArray);
+    }
+
     public String toString() {
         StringBuilder finalString = new StringBuilder();
         finalString.append(n).append("\n");
@@ -133,6 +147,8 @@ public class Board {
         System.out.println(newBoard.manhattan());
         System.out.println("Neighbors");
         System.out.println(newBoard.getNumberOfNeighbors());
+
+        StdOut.println(newBoard.getBoardFromTileArray().toString());
     }
 
 }
