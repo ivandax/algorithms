@@ -211,10 +211,13 @@ public class Board {
         System.out.println(Boolean.toString(newBoard.isGoal()));
         System.out.println("\n");
 
+        System.out.println("Equals");
+        System.out.println(Boolean.toString(newBoard.equals(newBoard)));
+        System.out.println("\n");
+
         Iterable<Board> boards = newBoard.neighbors();
         for (Board board : boards) {
             System.out.println(board.toString());
-            ;
             System.out.println("\n");
         }
     }
