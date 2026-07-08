@@ -176,16 +176,45 @@ public class Board {
         return stack;
     }
 
+    public boolean isGoal() {
+        boolean isGoal = true;
+        for (int i = 0; i < n * n - 1; i++) {
+            if (tileArray[i] != i + 1) {
+                isGoal = false;
+                break;
+            }
+        }
+        return isGoal;
+    }
+
     public static void main(String[] args) {
         int[][] sample = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         Board newBoard = new Board(sample);
-        StdOut.println(newBoard.toString());
+
+        System.out.println("To string");
+        String printable = newBoard.toString();
+        StdOut.println(printable);
+
+        System.out.println("Dimensions");
+        System.out.println(newBoard.dimension());
+        System.out.println("\n");
+
+        System.out.println("Manhattan");
         System.out.println(newBoard.manhattan());
-        System.out.println("Left neighbor" + "\n");
+        System.out.println("\n");
+
+        System.out.println("Hamming");
+        System.out.println(newBoard.hamming());
+        System.out.println("\n");
+
+        System.out.println("Is goal");
+        System.out.println(Boolean.toString(newBoard.isGoal()));
+        System.out.println("\n");
 
         Iterable<Board> boards = newBoard.neighbors();
         for (Board board : boards) {
-            System.out.println(board.toString());;
+            System.out.println(board.toString());
+            ;
             System.out.println("\n");
         }
     }
