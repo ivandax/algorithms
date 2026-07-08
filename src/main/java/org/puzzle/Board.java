@@ -27,13 +27,13 @@ public class Board {
         this.manhattan = calculateManhattan();
     }
 
-    public Board getBoardFromTileArray() {
+    public Board getBoardFromTileArray(int[] array) {
         int[][] outerArray = new int[n][n];
         for(int c = 0; c < n; c++){
             int[] innerArray = new int[n];
             int pointer = 0;
             for(int i = c * n; i < c * n + n; i++){
-                innerArray[pointer] = tileArray[i];
+                innerArray[pointer] = array[i];
                 pointer++;
             }
             outerArray[c] = innerArray;
@@ -140,15 +140,24 @@ public class Board {
         return maxNeighbors;
     }
 
+    public Board getLeftNeighbor() {
+        int[] copy = new int[n * n];
+        System.arraycopy(this.tileArray, 0, copy, 0, this.tileArray.length);
+        int newValue = this.tileArray[this.blankIndex - 1];
+        copy[this.blankIndex - 1] = 0;
+        copy[this.blankIndex] = newValue;
+        return getBoardFromTileArray(copy);
+    }
+
     public static void main(String[] args) {
         int[][] sample = {{8, 1, 3}, {4, 0, 2}, {7, 6, 5}};
         Board newBoard = new Board(sample);
         StdOut.println(newBoard.toString());
         System.out.println(newBoard.manhattan());
-        System.out.println("Neighbors");
+        System.out.println("Neighbors" + "\n");
         System.out.println(newBoard.getNumberOfNeighbors());
-
-        StdOut.println(newBoard.getBoardFromTileArray().toString());
+        System.out.println("Left neighbor" + "\n");
+        System.out.println(newBoard.getLeftNeighbor().toString());
     }
 
 }
