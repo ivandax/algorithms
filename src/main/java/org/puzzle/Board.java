@@ -17,7 +17,7 @@ public class Board {
             for (int j = 0; j < row.length; j++) {
                 int index = i * n + j;
                 tileArray[index] = row[j];
-                if(row[j] == 0){
+                if (row[j] == 0) {
                     this.blankIndex = index;
                 }
             }
@@ -29,10 +29,10 @@ public class Board {
 
     public Board getBoardFromTileArray(int[] array) {
         int[][] outerArray = new int[n][n];
-        for(int c = 0; c < n; c++){
+        for (int c = 0; c < n; c++) {
             int[] innerArray = new int[n];
             int pointer = 0;
-            for(int i = c * n; i < c * n + n; i++){
+            for (int i = c * n; i < c * n + n; i++) {
                 innerArray[pointer] = array[i];
                 pointer++;
             }
@@ -126,7 +126,34 @@ public class Board {
         return areEqual;
     }
 
-    public int getNumberOfNeighbors() {
+    private enum SwapDirection {
+        UP,
+        RIGHT,
+        LEFT,
+        DOWN,
+    }
+
+    private int getSwapIndex(SwapDirection direction) {
+        return switch (direction) {
+            case UP -> blankIndex - n;
+            case RIGHT -> blankIndex + 1;
+            case LEFT -> blankIndex - 1;
+            case DOWN -> blankIndex + n;
+        };
+    }
+
+    private Board getNeighbor(SwapDirection direction) {
+        int[] copy = new int[n * n];
+        System.arraycopy(this.tileArray, 0, copy, 0, this.tileArray.length);
+        int swapIndex = getSwapIndex(direction);
+        int newValue = this.tileArray[swapIndex];
+        copy[swapIndex] = 0;
+        copy[this.blankIndex] = newValue;
+        return getBoardFromTileArray(copy);
+    }
+
+    public Iterable<Board> neighbors() {
+        Stack<Board> stack = new Stack<Board>();
         int colRef = blankIndex % n;
         int rowRef = blankIndex / n;
         boolean isFirstCol = colRef == 0;
@@ -134,19 +161,19 @@ public class Board {
         boolean isFirstRow = rowRef == 0;
         boolean isLastRow = rowRef + 1 == n;
 
-        int maxNeighbors = 4;
-        if(isFirstCol || isLastCol) maxNeighbors--;
-        if(isFirstRow || isLastRow) maxNeighbors--;
-        return maxNeighbors;
-    }
-
-    public Board getLeftNeighbor() {
-        int[] copy = new int[n * n];
-        System.arraycopy(this.tileArray, 0, copy, 0, this.tileArray.length);
-        int newValue = this.tileArray[this.blankIndex - 1];
-        copy[this.blankIndex - 1] = 0;
-        copy[this.blankIndex] = newValue;
-        return getBoardFromTileArray(copy);
+        if (!isFirstCol) {
+            stack.push(getNeighbor(SwapDirection.LEFT));
+        }
+        if (!isLastCol) {
+            stack.push(getNeighbor(SwapDirection.RIGHT));
+        }
+        if (!isFirstRow) {
+            stack.push(getNeighbor(SwapDirection.UP));
+        }
+        if (!isLastRow) {
+            stack.push(getNeighbor(SwapDirection.DOWN));
+        }
+        return stack;
     }
 
     public static void main(String[] args) {
@@ -154,10 +181,13 @@ public class Board {
         Board newBoard = new Board(sample);
         StdOut.println(newBoard.toString());
         System.out.println(newBoard.manhattan());
-        System.out.println("Neighbors" + "\n");
-        System.out.println(newBoard.getNumberOfNeighbors());
         System.out.println("Left neighbor" + "\n");
-        System.out.println(newBoard.getLeftNeighbor().toString());
+
+        Iterable<Board> boards = newBoard.neighbors();
+        for (Board board : boards) {
+            System.out.println(board.toString());;
+            System.out.println("\n");
+        }
     }
 
 }
