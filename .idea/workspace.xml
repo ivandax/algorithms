@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="398bc1ab-6308-4aa7-ab8a-e27657f0a34d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/puzzle/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/puzzle/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Board">
+  <component name="RunManager" selected="Application.PriorityQueue">
     <configuration name="Board" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.puzzle.Board" />
       <module name="algorithms" />
@@ -165,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Board" />
         <item itemvalue="Application.PriorityQueue" />
+        <item itemvalue="Application.Board" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="JUnit.RandomizedQueueTest" />
@@ -191,7 +191,7 @@
       <updated>1711189347457</updated>
       <workItem from="1783522972369" duration="625000" />
       <workItem from="1783523638587" duration="91000" />
-      <workItem from="1783523742219" duration="4419000" />
+      <workItem from="1783523742219" duration="7982000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,6 @@ import edu.princeton.cs.algs4.StdOut;
 public class Board {
     private int[] tileArray;
     private int n;
-    private int manhattan;
     private int blankIndex;
 
     public Board(int[][] tiles) {
@@ -24,7 +23,6 @@ public class Board {
         }
         this.tileArray = tileArray;
         this.n = n;
-        this.manhattan = calculateManhattan();
     }
 
     public Board getBoardFromTileArray(int[] array) {
@@ -79,7 +77,7 @@ public class Board {
     }
 
     // sum of Manhattan distances between tiles and goal
-    public int calculateManhattan() {
+    public int manhattan() {
         int totalDiff = 0;
         for (int i = 0; i < tileArray.length; i++) {
             int value = tileArray[i];
@@ -94,11 +92,6 @@ public class Board {
             totalDiff = totalDiff + rowDiff + colDiff;
         }
         return totalDiff;
-    }
-
-    // sum of Manhattan distances between tiles and goal
-    public int manhattan() {
-        return manhattan;
     }
 
     @Override
