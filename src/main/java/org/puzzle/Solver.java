@@ -3,6 +3,8 @@ package org.puzzle;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 
+import java.util.Comparator;
+
 public class Solver {
     private boolean solvable;
     private Iterable<Board> solutionBoards;
@@ -18,6 +20,13 @@ public class Solver {
             this.board = board;
             this.moves = moves;
             this.previous = previous;
+        }
+    }
+
+    class PriorityFunction implements Comparator<SearchNode> {
+        @Override
+        public int compare(SearchNode nodeA, SearchNode nodeB) {
+            return Integer.compare(nodeA.board.hamming(), nodeB.board.hamming());
         }
     }
 
@@ -39,16 +48,12 @@ public class Solver {
         }
     }
 
-    private int priorityFunction(SearchNode nodeA, SearchNode nodeB) {
-        return Integer.compare(nodeA.board.hamming(), nodeB.board.hamming());
-    }
-
     public Solver(Board initial) {
         if (initial == null) {
             throw new IllegalArgumentException("null initializer");
         }
         SearchNode root = new SearchNode(initial, 0, null);
-        MinPQ<SearchNode> pq = new MinPQ<>();
+        MinPQ<SearchNode> pq = new MinPQ<>(new PriorityFunction());
         attemptSolution(root);
     }
 
