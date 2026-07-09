@@ -95,7 +95,7 @@
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PriorityQueue">
+  <component name="RunManager" selected="Application.Solver">
     <configuration name="Board" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.puzzle.Board" />
       <module name="algorithms" />
@@ -148,28 +148,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomizedQueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Solver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.puzzle.Solver" />
       <module name="algorithms" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.stacksandqueues.*" />
+          <option name="PATTERN" value="org.puzzle.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.stacksandqueues" />
-      <option name="MAIN_CLASS_NAME" value="org.example.stacksandqueues.RandomizedQueueTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solver" />
         <item itemvalue="Application.PriorityQueue" />
         <item itemvalue="Application.Board" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.MergeSort" />
-        <item itemvalue="JUnit.RandomizedQueueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +189,8 @@
       <updated>1711189347457</updated>
       <workItem from="1783522972369" duration="625000" />
       <workItem from="1783523638587" duration="91000" />
-      <workItem from="1783523742219" duration="7982000" />
+      <workItem from="1783523742219" duration="9599000" />
+      <workItem from="1783612388354" duration="1737000" />
     </task>
     <servers />
   </component>
