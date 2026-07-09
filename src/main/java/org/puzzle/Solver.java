@@ -1,5 +1,6 @@
 package org.puzzle;
 
+import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 
 public class Solver {
@@ -33,7 +34,13 @@ public class Solver {
         if (searchNode.board.isGoal()) {
             solvable = true;
             stackSolution(searchNode);
+        } else {
+
         }
+    }
+
+    private int priorityFunction(SearchNode nodeA, SearchNode nodeB) {
+        return Integer.compare(nodeA.board.hamming(), nodeB.board.hamming());
     }
 
     public Solver(Board initial) {
@@ -41,6 +48,7 @@ public class Solver {
             throw new IllegalArgumentException("null initializer");
         }
         SearchNode root = new SearchNode(initial, 0, null);
+        MinPQ<SearchNode> pq = new MinPQ<>();
         attemptSolution(root);
     }
 
@@ -57,5 +65,8 @@ public class Solver {
         Board newBoard = new Board(sample);
         Solver mySolver = new Solver(newBoard);
         System.out.println(mySolver.solvable);
+        for (Board board : mySolver.solutionBoards) {
+            System.out.println(board.toString());
+        }
     }
 }
