@@ -29,7 +29,7 @@ public class Solver {
     static class PriorityFunction implements Comparator<SearchNode> {
         @Override
         public int compare(SearchNode nodeA, SearchNode nodeB) {
-            return Integer.compare(nodeA.board.hamming(), nodeB.board.hamming());
+            return Integer.compare(nodeA.board.manhattan() + nodeA.moves, nodeB.board.manhattan() + nodeB.moves);
         }
     }
 
@@ -53,6 +53,10 @@ public class Solver {
             return true;
         } else {
             Iterable<Board> boards = min.board.neighbors();
+            System.out.println("Min node");
+            System.out.println("Moves " + min.moves);
+            System.out.println("Manhattan " + min.board.manhattan());
+            System.out.println("Manhattan priority " + (min.board.manhattan() + min.moves));
             for (Board board : boards) {
                 SearchNode node = new SearchNode(board, min.moves + 1, min);
                 pq.insert(node);
@@ -83,7 +87,7 @@ public class Solver {
         return solvable;
     }
 
-    // To read from the files, add a configuration with arguments like "puzzle02-basic.txt" and
+    // To read from the files, add a configuration with arguments like "puzzle1.txt" and
     // make sure file is added at the root of the project
     public static void main(String[] args) {
 
