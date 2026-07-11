@@ -59,6 +59,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -68,6 +69,7 @@
     "Application.MergeSort.executor": "Run",
     "Application.PriorityQueue.executor": "Run",
     "Application.QuickSort.executor": "Debug",
+    "Application.Solver with Args.executor": "Run",
     "Application.Solver.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -89,15 +91,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ivand\Desktop\repos\algorithms" />
       <recent name="C:\Users\PC\Desktop\algorithms\algorithms" />
       <recent name="C:\Users\PC\Desktop\algorithms\algorithms\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ivand\Desktop\repos\algorithms" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.stacksandqueues" />
       <recent name="org.stacksandqueues" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Solver">
+  <component name="RunManager" selected="Application.Solver with Args">
     <configuration name="Board" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.puzzle.Board" />
       <module name="algorithms" />
@@ -150,9 +156,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Solver with Args" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.puzzle.Solver" />
       <module name="algorithms" />
+      <option name="PROGRAM_PARAMETERS" value="puzzle02-basic.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.puzzle.*" />
@@ -163,9 +170,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Board" />
+      <item itemvalue="Application.MergeSort" />
+      <item itemvalue="Application.PriorityQueue" />
+      <item itemvalue="Application.QuickSort" />
+      <item itemvalue="Application.Solver with Args" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solver" />
+        <item itemvalue="Application.Solver with Args" />
         <item itemvalue="Application.PriorityQueue" />
         <item itemvalue="Application.Board" />
         <item itemvalue="Application.QuickSort" />
@@ -192,7 +206,9 @@
       <workItem from="1783522972369" duration="625000" />
       <workItem from="1783523638587" duration="91000" />
       <workItem from="1783523742219" duration="9599000" />
-      <workItem from="1783612388354" duration="7711000" />
+      <workItem from="1783612388354" duration="8176000" />
+      <workItem from="1783689271785" duration="2000" />
+      <workItem from="1783786520556" duration="936000" />
     </task>
     <servers />
   </component>

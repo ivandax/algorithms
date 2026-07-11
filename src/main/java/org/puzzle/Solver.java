@@ -1,13 +1,16 @@
 package org.puzzle;
 
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Comparator;
 
 public class Solver {
     private boolean solvable;
     private Iterable<Board> solutionBoards;
+    private int moves;
 
     static class SearchNode {
         Board board;
@@ -37,6 +40,7 @@ public class Solver {
         while (current.previous != null) {
             stack.push(current.previous.board);
             current = current.previous;
+            moves++;
         }
         this.solutionBoards = stack;
     }
@@ -71,18 +75,37 @@ public class Solver {
         return solutionBoards;
     }
 
+    public int moves() {
+        return moves;
+    }
+
     public boolean isSolvable() {
         return solvable;
     }
 
+    // To read from the files, add a configuration with arguments like "puzzle02-basic.txt" and
+    // make sure file is added at the root of the project
     public static void main(String[] args) {
-        int[][] sample = {{1, 2, 3}, {4, 5, 6}, {0, 7, 8}};
-        Board newBoard = new Board(sample);
-        Solver mySolver = new Solver(newBoard);
-        System.out.println(mySolver.solvable);
-        for (Board board : mySolver.solutionBoards) {
-            System.out.println("Printing solutions");
-            System.out.println(board.toString());
+
+        // create initial board from file
+        In in = new In(args[0]);
+        int n = in.readInt();
+        int[][] tiles = new int[n][n];
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                tiles[i][j] = in.readInt();
+        Board initial = new Board(tiles);
+
+        // solve the puzzle
+        Solver solver = new Solver(initial);
+
+        // print solution to standard output
+        if (!solver.isSolvable())
+            StdOut.println("No solution possible");
+        else {
+            StdOut.println("Minimum number of moves = " + solver.moves());
+            for (Board board : solver.solution())
+                StdOut.println(board);
         }
     }
 }
