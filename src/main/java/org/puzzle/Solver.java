@@ -36,6 +36,20 @@ public class Solver {
         }
     }
 
+    public Solver(Board initial) {
+        if (initial == null) {
+            throw new IllegalArgumentException("null initializer");
+        }
+        SearchNode root = new SearchNode(initial, 0, null, initial.manhattan());
+        Board twinBoard = initial.twin();
+        SearchNode twinNode = new SearchNode(twinBoard, 0, null, twinBoard.manhattan());
+        MinPQ<SearchNode> mainPq = new MinPQ<>(new PriorityFunction());
+        MinPQ<SearchNode> twinPq = new MinPQ<>(new PriorityFunction());
+        mainPq.insert(root);
+        twinPq.insert(twinNode);
+        attemptParallelSolutions(mainPq, twinPq);
+    }
+
     private void stackSolution(SearchNode searchNode) {
         Stack<Board> stack = new Stack<>();
         stack.push(searchNode.board);
@@ -93,20 +107,6 @@ public class Solver {
             }
             return attemptParallelSolutions(mainPq, twinPq);
         }
-    }
-
-    public Solver(Board initial) {
-        if (initial == null) {
-            throw new IllegalArgumentException("null initializer");
-        }
-        SearchNode root = new SearchNode(initial, 0, null, initial.manhattan());
-        Board twinBoard = initial.twin();
-        SearchNode twinNode = new SearchNode(twinBoard, 0, null, twinBoard.manhattan());
-        MinPQ<SearchNode> mainPq = new MinPQ<>(new PriorityFunction());
-        MinPQ<SearchNode> twinPq = new MinPQ<>(new PriorityFunction());
-        mainPq.insert(root);
-        twinPq.insert(twinNode);
-        attemptParallelSolutions(mainPq, twinPq);
     }
 
     public Iterable<Board> solution() {

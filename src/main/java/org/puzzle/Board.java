@@ -9,20 +9,20 @@ public class Board {
     private int blankIndex;
 
     public Board(int[][] tiles) {
-        int n = tiles.length;
-        int[] tileArray = new int[n * n];
+        int length = tiles.length;
+        int[] array = new int[length * length];
         for (int i = 0; i < tiles.length; i++) {
             int[] row = tiles[i];
             for (int j = 0; j < row.length; j++) {
-                int index = i * n + j;
-                tileArray[index] = row[j];
+                int index = i * length + j;
+                array[index] = row[j];
                 if (row[j] == 0) {
                     this.blankIndex = index;
                 }
             }
         }
-        this.tileArray = tileArray;
-        this.n = n;
+        this.tileArray = array;
+        this.n = length;
     }
 
     private Board getBoardFromTileArray(int[] array) {
@@ -129,23 +129,19 @@ public class Board {
     private int getSwapIndex(SwapDirection direction) {
         int result = blankIndex;
         switch (direction) {
-            case UP: {
+            case UP:
                 result = blankIndex - n;
                 break;
-            }
-            case RIGHT: {
+            case RIGHT:
                 result = blankIndex + 1;
                 break;
-            }
-            case LEFT: {
+            case LEFT:
                 result = blankIndex - 1;
                 break;
-            }
-            case DOWN: {
+            case DOWN:
                 result = blankIndex + n;
                 break;
-            }
-        };
+        }
         return result;
     }
 
