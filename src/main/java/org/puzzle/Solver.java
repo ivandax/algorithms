@@ -16,20 +16,23 @@ public class Solver {
         Board board;
         int moves;
         SearchNode previous;
+        int manhattanPriority;
 
         SearchNode(Board board,
                    int moves,
-                   SearchNode previous) {
+                   SearchNode previous,
+                   int manhattanPriority) {
             this.board = board;
             this.moves = moves;
             this.previous = previous;
+            this.manhattanPriority = manhattanPriority;
         }
     }
 
     static class PriorityFunction implements Comparator<SearchNode> {
         @Override
         public int compare(SearchNode nodeA, SearchNode nodeB) {
-            return Integer.compare(nodeA.board.manhattan() + nodeA.moves, nodeB.board.manhattan() + nodeB.moves);
+            return Integer.compare(nodeA.manhattanPriority, nodeB.manhattanPriority);
         }
     }
 
@@ -53,10 +56,10 @@ public class Solver {
             return true;
         } else {
             Iterable<Board> boards = min.board.neighbors();
-            System.out.println("Manhattan priority " + (min.board.manhattan() + min.moves));
+            System.out.println("Manhattan priority " + min.manhattanPriority);
             for (Board board : boards) {
                 if (min.previous != null && board.equals(min.previous.board)) continue;
-                SearchNode node = new SearchNode(board, min.moves + 1, min);
+                SearchNode node = new SearchNode(board, min.moves + 1, min, board.manhattan() + min.moves + 1);
                 pq.insert(node);
             }
             return attemptSolution(pq);
@@ -67,7 +70,7 @@ public class Solver {
         if (initial == null) {
             throw new IllegalArgumentException("null initializer");
         }
-        SearchNode root = new SearchNode(initial, 0, null);
+        SearchNode root = new SearchNode(initial, 0, null, initial.manhattan());
         MinPQ<SearchNode> pq = new MinPQ<>(new PriorityFunction());
         pq.insert(root);
         attemptSolution(pq);
