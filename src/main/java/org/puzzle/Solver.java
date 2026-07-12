@@ -53,11 +53,9 @@ public class Solver {
             return true;
         } else {
             Iterable<Board> boards = min.board.neighbors();
-            System.out.println("Min node");
-            System.out.println("Moves " + min.moves);
-            System.out.println("Manhattan " + min.board.manhattan());
             System.out.println("Manhattan priority " + (min.board.manhattan() + min.moves));
             for (Board board : boards) {
+                if (min.previous != null && board.equals(min.previous.board)) continue;
                 SearchNode node = new SearchNode(board, min.moves + 1, min);
                 pq.insert(node);
             }
