@@ -53,6 +53,7 @@ public class Solver {
         if (min.board.isGoal()) {
             solvable = true;
             stackSolution(min);
+            moves = -1;
             return true;
         } else {
             Iterable<Board> boards = min.board.neighbors();
