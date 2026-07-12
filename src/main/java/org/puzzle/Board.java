@@ -128,10 +128,10 @@ public class Board {
 
     private int getSwapIndex(SwapDirection direction) {
         return switch (direction) {
-            case UP -> blankIndex - n;
-            case RIGHT -> blankIndex + 1;
-            case LEFT -> blankIndex - 1;
-            case DOWN -> blankIndex + n;
+            case SwapDirection.UP -> blankIndex - n;
+            case SwapDirection.RIGHT -> blankIndex + 1;
+            case SwapDirection.LEFT -> blankIndex - 1;
+            case SwapDirection.DOWN -> blankIndex + n;
         };
     }
 
