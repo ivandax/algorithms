@@ -25,7 +25,7 @@ public class Board {
         this.n = n;
     }
 
-    public Board getBoardFromTileArray(int[] array) {
+    private Board getBoardFromTileArray(int[] array) {
         int[][] outerArray = new int[n][n];
         for (int c = 0; c < n; c++) {
             int[] innerArray = new int[n];
@@ -129,19 +129,19 @@ public class Board {
     private int getSwapIndex(SwapDirection direction) {
         int result = blankIndex;
         switch (direction) {
-            case SwapDirection.UP: {
+            case UP: {
                 result = blankIndex - n;
                 break;
             }
-            case SwapDirection.RIGHT: {
+            case RIGHT: {
                 result = blankIndex + 1;
                 break;
             }
-            case SwapDirection.LEFT: {
+            case LEFT: {
                 result = blankIndex - 1;
                 break;
             }
-            case SwapDirection.DOWN: {
+            case DOWN: {
                 result = blankIndex + n;
                 break;
             }

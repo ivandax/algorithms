@@ -12,7 +12,7 @@ public class Solver {
     private Iterable<Board> solutionBoards;
     private int moves;
 
-    static class SearchNode {
+    private static class SearchNode {
         Board board;
         int moves;
         SearchNode previous;
@@ -29,7 +29,7 @@ public class Solver {
         }
     }
 
-    static class PriorityFunction implements Comparator<SearchNode> {
+    private static class PriorityFunction implements Comparator<SearchNode> {
         @Override
         public int compare(SearchNode nodeA, SearchNode nodeB) {
             return Integer.compare(nodeA.manhattanPriority, nodeB.manhattanPriority);
