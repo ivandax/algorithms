@@ -183,19 +183,22 @@ public class Board {
         return (int) ((Math.random() * (max - min)) + min);
     }
 
-    private int tryToGetRandomTile(int excludeIndex) {
+    private int getTile(int excludeIndex) {
         int tileIndex = -1;
+        int i = 0;
         while (tileIndex < 0) {
-            int i = getRandomNumber(0, tileArray.length - 1);
-            if (tileArray[i] == 0 || i == excludeIndex) continue;
+            if (tileArray[i] == 0 || i == excludeIndex) {
+                i++;
+                continue;
+            };
             tileIndex = i;
         }
         return tileIndex;
     }
 
     public Board twin() {
-        int firstTileToSwap = tryToGetRandomTile(-2);
-        int secondTileToSwap = tryToGetRandomTile(firstTileToSwap);
+        int firstTileToSwap = getTile(-2);
+        int secondTileToSwap = getTile(firstTileToSwap);
         int[] copyTileArray = new int[n * n];
         for (int i = 0; i < tileArray.length; i++) {
             if (i == firstTileToSwap) {
