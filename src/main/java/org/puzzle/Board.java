@@ -169,6 +169,38 @@ public class Board {
         return stack;
     }
 
+    private int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
+    private int tryToGetRandomTile(int excludeIndex) {
+        int tileIndex = -1;
+        while (tileIndex < 0) {
+            int i = getRandomNumber(0, tileArray.length - 1);
+            if (tileArray[i] == 0 || i == excludeIndex) continue;
+            tileIndex = i;
+        }
+        return tileIndex;
+    }
+
+    public Board twin() {
+        int firstTileToSwap = tryToGetRandomTile(-2);
+        int secondTileToSwap = tryToGetRandomTile(firstTileToSwap);
+        int[] copyTileArray = new int[n * n];
+        for (int i = 0; i < tileArray.length; i++) {
+            if (i == firstTileToSwap) {
+                copyTileArray[i] = tileArray[secondTileToSwap];
+                continue;
+            }
+            if (i == secondTileToSwap) {
+                copyTileArray[i] = tileArray[firstTileToSwap];
+                continue;
+            }
+            copyTileArray[i] = tileArray[i];
+        }
+        return getBoardFromTileArray(copyTileArray);
+    }
+
     public boolean isGoal() {
         boolean isGoal = true;
         for (int i = 0; i < n * n - 1; i++) {
@@ -206,6 +238,10 @@ public class Board {
 
         System.out.println("Equals");
         System.out.println(Boolean.toString(newBoard.equals(newBoard)));
+        System.out.println("\n");
+
+        System.out.println("Twin");
+        System.out.println(newBoard.twin().toString());
         System.out.println("\n");
 
         Iterable<Board> boards = newBoard.neighbors();
