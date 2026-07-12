@@ -127,12 +127,26 @@ public class Board {
     }
 
     private int getSwapIndex(SwapDirection direction) {
-        return switch (direction) {
-            case SwapDirection.UP -> blankIndex - n;
-            case SwapDirection.RIGHT -> blankIndex + 1;
-            case SwapDirection.LEFT -> blankIndex - 1;
-            case SwapDirection.DOWN -> blankIndex + n;
+        int result = blankIndex;
+        switch (direction) {
+            case SwapDirection.UP: {
+                result = blankIndex - n;
+                break;
+            }
+            case SwapDirection.RIGHT: {
+                result = blankIndex + 1;
+                break;
+            }
+            case SwapDirection.LEFT: {
+                result = blankIndex - 1;
+                break;
+            }
+            case SwapDirection.DOWN: {
+                result = blankIndex + n;
+                break;
+            }
         };
+        return result;
     }
 
     private Board getNeighbor(SwapDirection direction) {
