@@ -81,6 +81,7 @@ public class Solver {
         }
     }
 
+    // Hint: Improve this by making the search iterative instead of recursive.
     private boolean attemptParallelSolutions(MinPQ<SearchNode> mainPq, MinPQ<SearchNode> twinPq) {
         SearchNode mainMin = mainPq.delMin();
         SearchNode twinMin = twinPq.delMin();
