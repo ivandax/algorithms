@@ -1,4 +1,4 @@
-package collinear_points;
+package org.collinear;
 
 /*************************************************************************
  *  Compilation:  javac LineSegment.java

@@ -1,4 +1,4 @@
-package collinear_points;
+package org.collinear;
 
 import java.util.ArrayList;
 import java.util.Arrays;

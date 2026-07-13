@@ -1,4 +1,4 @@
-package collinear_points;
+package org.collinear;
 
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
